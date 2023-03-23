@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Website</title>
+    <style>
+        /* Style the table */
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          max-width: 800px;
+          margin: auto;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          text-align: center;
+          color: #333;
+        }
+      
+        /* Style the table header */
+        th {
+          background-color: #0077b6;
+          color: #fff;
+          padding: 10px;
+        }
+      
+        /* Style the table rows */
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+      
+        /* Style the table data cells */
+        td {
+          border: 1px solid #ddd;
+          padding: 10px;
+        }
+
+      /* Internal CSS style sheet */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Navigation bar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+      }
+    
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      
+      /* Search tab */
+      .search-container {
+        float: right;
+      }
+      
+      input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+      }
+      
+      button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background-color: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #ccc;
+      }
+
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        color: #333;
+        margin-top: 50px;
+      }
+    
+      /* Style the paragraph */
+      p {
+        font-size: 18px;
+        text-align: center;
+        color: #777;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+      <div>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="/pay/?username={{username}}">Pay</a>
+        <a href="/logout/">Logout</a>
+        wallet:{{wallet}}
+      </div>
+      <form action="/status/" method="POST">
+        {% csrf_token %}
+        <div>
+        <label for="activity_status" class="active">Activity Status:</label>
+        <select name="activity_status" id = "activity_status">
+            <option value="on">online</option>
+            <option value="off">offline</option>
+            <option value="last seen recently">last seen recently</option>
+        </select>
+        <button type="submit">Set</button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Page content -->
+    <div class="content">
+      <h1>Welcome to website!</h1>
+      <p>Pay and start interacting with best consultants to get your problem solved by experts</p>
+    <!-- Number of professionals found on the site -->
+    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Fees</th>
+          <th>Meeting Time</th>
+          <th>options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{username}}</td>
+          <td>{{consultation_fee}}</td>
+          <td>{{meeting_time}}</td>
+          <td><button onclick="location.href='/chat/?username={{username}}'">Chat</button></td>
+      </tbody>
+    </table>
+    
+    
+
+    </div>
+    
+    
+  </body>
+</html>

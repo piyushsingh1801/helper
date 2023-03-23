@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% block title %}{% endblock %}Djangochat</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <style>
+            .chat-messages {
+                height: 400px;
+                overflow-y: auto;
+            }
+        </style>
+    </head>
+
+    <body class="bg-teal-600">
+
+        {% block content %}
+        {% endblock %}
+
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>
